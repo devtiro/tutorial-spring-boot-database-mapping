@@ -1,8 +1,6 @@
 package com.devtiro.databasemapping.domain;
 
 
-import com.devtiro.databasemapping.DatabaseMappingApplication;
-import com.devtiro.databasemapping.repository.AuthorRepository;
 import com.devtiro.databasemapping.repository.BookRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +24,7 @@ public class BookRepositoryTest {
     public void testSaveBook() {
         // Given
         final Book book = new Book(
-                "1234567890123",
+                null, //"1234567890123",
                 "Spring Boot in Action",
                 "A comprehensive guide to Spring Boot"
         );
@@ -42,14 +40,14 @@ public class BookRepositoryTest {
     public void testFindById() {
         // Given
         final Book book = new Book(
-                "1234567890123",
+                null, //"1234567890123",
                 "Spring Boot in Action",
                 "A comprehensive guide to Spring Boot"
         );
         bookRepository.save(book);
 
         // When
-        Optional<Book> optionalBook = bookRepository.findById("1234567890123");
+        Optional<Book> optionalBook = bookRepository.findById(book.getIsbn());
 
         // Then
         assertThat(optionalBook).isPresent();
@@ -60,7 +58,7 @@ public class BookRepositoryTest {
     public void testDeleteBook() {
         // Given
         final Book book = new Book(
-                "1234567890123",
+                null, //"1234567890123",
                 "Spring Boot in Action",
                 "A comprehensive guide to Spring Boot"
         );

@@ -1,5 +1,6 @@
 package com.devtiro.databasemapping.domain;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -18,6 +19,7 @@ public class Author {
 
     private String name;
 
+    @Column(name="desc")
     private String description;
 
     public Author() {
